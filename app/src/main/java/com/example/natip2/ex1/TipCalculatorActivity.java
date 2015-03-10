@@ -2,18 +2,39 @@ package com.example.natip2.ex1;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+//import android.text.Editable;
+//import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-
+import android.widget.TextView;
 
 public class TipCalculatorActivity extends ActionBarActivity {
-    public View.OnClickListener P = new View.OnClickListener(){
-        
+    static final double TIP = 0.12;
+
+    private View.OnClickListener p = new View.OnClickListener(){
+
+       public void onClick(View v){
+
+           EditText insertedVal = (EditText)findViewById(R.id.edtBillAmount);
+           double result = Double.parseDouble(insertedVal.getText().toString())*TIP;
+           CheckBox box = (CheckBox)findViewById(R.id.chkRound);
+           String message ="Total tip: ";
+           if(box.isChecked()){
+               Integer rounded =(int)Math.round(result);
+               message += rounded.toString();
+           }else{
+               message = message+String.format("%.2f",result );
+           }
+
+            TextView resultBox = (TextView)findViewById(R.id.txtTipResult);
+           resultBox.setText(message);
+
+       }
+
 
 
 
@@ -22,38 +43,8 @@ public class TipCalculatorActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calculator);
-
-        EditText textBill = (EditText)findViewById(R.id.edtBillAmount);
-        textBill.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                EditText t = (EditText)findViewById(R.id.txtTipResult);
-                double result = Double.parseDouble(t.getText().toString());
-                CheckBox box = (CheckBox)findViewById(R.id.chkRound);
-
-                if(box.isChecked()){
-                    result=0;
-                }else{
-                    result =1;
-                }
-
-
-                t.setText("hi");
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-
+        Button button = (Button)findViewById(R.id.btnCalculate);
+        button.setOnClickListener(p);
     }
 
 

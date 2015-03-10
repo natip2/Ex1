@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bill Amount"
-        android:id="@+id/textView"
+        android:id="@+id/Bill"
         android:autoText="false"
         android:layout_alignBottom="@+id/edtBillAmount"
         android:layout_alignParentLeft="true"
@@ -39,20 +39,21 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtTipResult"
-        android:layout_below="@+id/btnCalculate"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:layout_marginTop="26dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/edtBillAmount"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/btnCalculate"
         android:layout_toEndOf="@+id/btnCalculate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter bill amount first"
+        android:id="@+id/txtTipResult"
+        android:layout_below="@+id/btnCalculate"
+        android:layout_alignLeft="@+id/edtBillAmount"
+        android:layout_alignStart="@+id/edtBillAmount"
+        android:layout_marginTop="65dp" />
 
 </RelativeLayout>
