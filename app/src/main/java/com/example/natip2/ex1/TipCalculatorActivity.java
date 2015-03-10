@@ -27,7 +27,7 @@ public class TipCalculatorActivity extends ActionBarActivity {
                Integer rounded =(int)Math.round(result);
                message += rounded.toString();
            }else{
-               message = message+String.format("%.2f",result );
+                message = message+String.format("%.2f",result );
            }
 
             TextView resultBox = (TextView)findViewById(R.id.txtTipResult);
@@ -66,7 +66,6 @@ public class TipCalculatorActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
